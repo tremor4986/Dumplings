@@ -1,4 +1,0 @@
-Type: PackageTask
-WinGetIdentifier: Mozilla.Thunderbird
-Skip: false
-CheckVersionOnly: true
