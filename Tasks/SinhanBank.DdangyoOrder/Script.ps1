@@ -1,7 +1,10 @@
 $Object1 = Invoke-WebRequest -Uri 'http://down.fingerservice.co.kr/' | ConvertFrom-Html
 
 # Version
-$this.CurrentState.Version = $Object1.version
+
+$this.CurrentState.Version = [regex]::Match(
+  $Object1.SelectSingleNode('/html/body/div/div[3]/a').Attributes['href'].Value, '(\d+\.\d+\.\d+)'
+  ).Groups[1].Value
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
