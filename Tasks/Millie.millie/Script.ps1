@@ -1,4 +1,4 @@
-$Object1 = Invoke-WebRequest -Uri 'https://apis.millie.co.kr/v3/lib/versions/' | ConvertFrom-Html
+$Object1 = Invoke-RestMethod -Uri 'https://apis.millie.co.kr/v3/lib/versions/'
 
 # Version
 
