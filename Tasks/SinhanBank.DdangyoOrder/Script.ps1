@@ -1,7 +1,7 @@
 $Object1 = Invoke-WebRequest -Uri 'http://down.fingerservice.co.kr/' | ConvertFrom-Html
 
 # Version
-$this.CurrentState.Version = $Object1.Product.Version.Dir
+$this.CurrentState.Version = $Object1.version
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
