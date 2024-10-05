@@ -1,14 +1,12 @@
-$Object1 = Invoke-WebRequest -Uri 'https://swit.io/desktop' | ConvertFrom-Html
+$Object1 = Invoke-RestMethod -Uri 'https://api3.swit.io/v1/common/version?device=PCAPP'
 
 # Version
 
-$this.CurrentState.Version = [regex]::Match(
-  $Object1.SelectSingleNode('/html/body/app-root/swit-home-new/swit-desktop/div[2]/div[1]/ul/li[1]/a').Attributes['href'].Value, '(\d+\.\d+\.\d+)'
-  ).Groups[1].Value
+$this.CurrentState.Version = $Object1.data.latest_ver
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
-  InstallerUrl = $Object1.SelectSingleNode('/html/body/app-root/swit-home-new/swit-desktop/div[2]/div[1]/ul/li[1]/a').Attributes['href'].Value
+  InstallerUrl = "https://af.swit.io/app/swit-" + $Object1.data.latest_ver + ".exe"
 }
 
 switch -Regex ($this.Check()) {
