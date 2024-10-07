@@ -8,7 +8,9 @@ $this.CurrentState.Version = [regex]::Match(
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
-  InstallerUrl = "http://down.fingerservice.co.kr/" $Object1.SelectSingleNode('/html/body/div/div[3]/a').Attributes['href'].Value
+  InstallerUrl = "http://down.fingerservice.co.kr/" + [regex]::Match(
+  $Object1.SelectSingleNode('/html/body/div/div[3]/a').Attributes['href'].Value, '(\d+\.\d+\.\d+)'
+  ).Groups[1].Value
 }
 
 switch -Regex ($this.Check()) {
