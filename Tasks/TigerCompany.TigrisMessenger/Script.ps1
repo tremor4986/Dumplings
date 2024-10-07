@@ -2,18 +2,11 @@ $Object1 = Invoke-WebRequest -Uri 'https://www.tigrison.com/home' | ConvertFrom-
 
 # Version
 
-$this.CurrentState.Version = [regex]::Match(
-  $Object1.SelectSingleNode('/html/body/script[9]').InnerText, '(\d+\.\d+\.\d+)'
-  ).Groups[1].Value
+$this.CurrentState.Version = "1.1.7"
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
-  InstallerUrl = 'https://www.tigrison.com/store/messenger/update/packages/' + 
-  [regex]::Match(
-  $Object1.SelectSingleNode('/html/body/script[9]').InnerText, '(\d+\.\d+\.\d+)'
-  ).Groups[1].Value + '/TigrisMessenger-' + [regex]::Match(
-  $Object1.SelectSingleNode('/html/body/script[9]').InnerText, '(\d+\.\d+\.\d+)'
-  ).Groups[1].Value + '%20Setup.exe'
+  InstallerUrl = 'https://www.tigrison.com/store/messenger/update/packages/1.1.7/TigrisMessenger-1.1.7%20Setup.exe'
 }
 
 switch -Regex ($this.Check()) {
