@@ -1,4 +1,4 @@
-$Object1 = Invoke-WebRequest -Uri 'https://www.tigrison.com/home' | ConvertFrom-Html
+$Object1 = Invoke-WebRequest -Uri 'https://www.tigrison.com/home'
 
 # Version
 
