@@ -10,9 +10,9 @@ $this.CurrentState.Version = [regex]::Match(
 $this.CurrentState.Installer += [ordered]@{
   InstallerUrl = 'https://www.tigrison.com/store/messenger/update/packages/' + 
   [regex]::Match(
-  $Object1.SelectSingleNode('/html/body/script[9]'), '.*TigrisMessenger.*(\d+\.\d+\.\d+)'
+  $Object1.SelectSingleNode('/html/body/script[9]'), '(\d+\.\d+\.\d+)'
   ).Groups[3].Value + '/TigrisMessenger-' + [regex]::Match(
-  $Object1.SelectSingleNode('/html/body/script[9]'), '.*TigrisMessenger.*(\d+\.\d+\.\d+)'
+  $Object1.SelectSingleNode('/html/body/script[9]'), '(\d+\.\d+\.\d+)'
   ).Groups[3].Value + '%20Setup.exe'
 }
 
