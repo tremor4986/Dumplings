@@ -1,9 +1,9 @@
-$Object1 = Invoke-RestMethod -Uri 'https://flow.team/FLOW_UPDATE_R001.jct' -Headers @{
-  'referer'    = 'pc'
-  'Content-Type' = 'application/x-www-form-urlencoded; charset=UTF-8'
-} -Body @{
-  _json_ = '{"PCK_NM":"team.flow.flowMiniRenewal","GB":"WINDOWS"}'
-}
+$Object1 = Invoke-RestMethod `
+  -Uri 'https://flow.team/FLOW_UPDATE_R001.jct' `
+  -Method Post `
+  -Headers @{ 
+    Referer = 'https://flow.team/kr/download'; 'Content-Type' = 'application/x-www-form-urlencoded' } `
+  -Body '_JSON_=%257B%2522USER_ID%2522%253A%2522%2522%252C%2522RGSN_DTTM%2522%253A%2522%2522%252C%2522PCK_NM%2522%253A%2522team.flow.flowMiniRenewal%2522%252C%2522GB%2522%253A%2522WINDOWS%2522%257D'
 
 # Version
 $this.CurrentState.Version = [regex]::Match(
