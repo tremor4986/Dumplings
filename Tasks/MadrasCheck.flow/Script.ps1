@@ -7,12 +7,12 @@ $Object1 = Invoke-RestMethod `
 
 # Version
 $this.CurrentState.Version = [regex]::Match(
-  $Object1.flow_rec[1].LINK_URL, '(\d+\.\d+\.\d+)'
+  $Object1.flow_rec.LINK_URL, '(\d+\.\d+\.\d+)'
   ).Groups[1].Value
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
-  InstallerUrl = $Object1.flow_rec[1].LINK_URL
+  InstallerUrl = $Object1.flow_rec.LINK_URL
 }
 
 switch -Regex ($this.Check()) {
