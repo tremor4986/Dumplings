@@ -6,9 +6,9 @@ $4Ver = [regex]::Match(
   $Object1.SelectSingleNode('/html/body/div[4]/div[2]/div[1]/div/div[1]/article/section/div/div/div[2]/div/a[1]').Attributes['title'].Value, '(\d+\.\d+\.\d+\.\d+)'
   ).Groups[1].Value
 $ReleaseVer = [regex]::Match(
-  $Object1.SelectSingleNode('/html/body/div[4]/div[2]/div[1]/div/div[1]/article/section/div/div/div[2]/div/a[1]').Attributes['title'].Value, '(\d+\.\d+\.\d+)'
-  ).Groups[3].Value
-$InstUrl = 'https://sourceforge.net/projects/tortoisesvn/files/'+ $3Ver + '/Application/TortoiseSVN-' + $4Ver + '-arch-svn-' + $ReleaseVer + '.msi'
+  $Object1.SelectSingleNode('/html/body/div[4]/div[2]/div[1]/div/div[1]/article/section/div/div/div[2]/div/a[1]').Attributes['title'].Value, '(svn-\d+\.\d+\.\d+)'
+  ).Groups[1].Value
+$InstUrl = 'https://sourceforge.net/projects/tortoisesvn/files/'+ $3Ver + '/Application/TortoiseSVN-' + $4Ver + '-arch-' + $ReleaseVer + '.msi'
 
 # Version
 $this.CurrentState.Version = $4Ver
