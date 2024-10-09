@@ -1,0 +1,9 @@
+Installer:
+- Architecture: x86
+  InstallerUrl: https://sourceforge.net/projects/tortoisesvn/files/1.14.8/Application/TortoiseSVN-1.14.8.29723-win32-svn-1.14.4.msi
+- Architecture: x64
+  InstallerUrl: https://sourceforge.net/projects/tortoisesvn/files/1.14.8/Application/TortoiseSVN-1.14.8.29723-x64-svn-1.14.4.msi
+- Architecture: arm64
+  InstallerUrl: https://sourceforge.net/projects/tortoisesvn/files/1.14.8/Application/TortoiseSVN-1.14.8.29723-ARM64-svn-1.14.4.msi
+Locale: []
+Version: 1.14.8.29723
