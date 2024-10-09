@@ -17,14 +17,17 @@ $this.CurrentState.Version = $4Ver
 $this.CurrentState.Installer += [ordered]@{
   Architecture = 'x86'
   InstallerUrl = $InstUrl.Replace('arch', 'win32')
+  DisplayName = "TortoiseSVN ${4Ver} (32 bit)"
 }
 $this.CurrentState.Installer += [ordered]@{
   Architecture = 'x64'
   InstallerUrl = $InstUrl.Replace('arch', 'x64')
+  DisplayName = "TortoiseSVN ${4Ver} (64 bit)"
 }
 $this.CurrentState.Installer += [ordered]@{
   Architecture = 'arm64'
   InstallerUrl = $InstUrl.Replace('arch', 'ARM64')
+  DisplayName = "TortoiseSVN ${4Ver} (64 bit)"
 }
 
 switch -Regex ($this.Check()) {
