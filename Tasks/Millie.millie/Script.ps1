@@ -6,7 +6,7 @@ $this.CurrentState.Version = $Object1.pcv_win
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
-  InstallerUrl = "https://apis.millie.co.kr/v1/download/installer/win/millie-" + $Object1.pcv_win + ".exe"
+  InstallerUrl = "https://apis.millie.co.kr/v1/download/installer/win/millie-$($this.CurrentState.Version).exe"
 }
 
 switch -Regex ($this.Check()) {
