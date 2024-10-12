@@ -1,0 +1,5 @@
+Installer:
+- Architecture: x86
+  InstallerUrl: https://github.com/yourtablecloth/TableCloth/releases/download/v1.13.2/TableCloth_1.13.2.0_Release_c0e5598.exe
+Locale: []
+Version: 1.13.2
