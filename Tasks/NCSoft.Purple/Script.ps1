@@ -1,6 +1,6 @@
 $Object1 = Invoke-WebRequest -Uri 'https://purple-store.plaync.com/api/conti/content?service=PurpleStore&alias=PurpleStore_Download'
 $windowsLink = [regex]::Match(
-  $Object1.Content, '(^https.*\.exe$)'
+  $Object1.Content, '(https:\/\/[^\s"]+\.exe)'
   ).Groups[1].Value
 
 # Version
