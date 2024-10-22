@@ -1,11 +1,11 @@
 $Domain = 'http://down.fingerservice.co.kr/'
 $Object1 = Invoke-WebRequest -Uri $Domain | ConvertFrom-Html
-$DownloadUrl = $Object1.SelectSingleNode('/html/body/div/div[3]/a').Attributes['href'].Value
+$DownloadUrl = $Domain + $Object1.SelectSingleNode('/html/body/div/div[3]/a').Attributes['href'].Value
 
 # Version
 
 $this.CurrentState.Version = [regex]::Match(
-  $Domain + $DownloadUrl, '(\d+\.\d+\.\d+)'
+  $DownloadUrl, '(\d+\.\d+\.\d+)'
   ).Groups[1].Value
 
 # Installer
