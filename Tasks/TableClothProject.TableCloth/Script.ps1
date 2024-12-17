@@ -14,6 +14,14 @@ $this.CurrentState.Installer += [ordered]@{
 
 switch -Regex ($this.Check()) {
   'New|Changed|Updated' {
+  try {
+      # ReleaseTime
+      $this.CurrentState.ReleaseTime = $Object1.published_at.ToUniversalTime()
+    } catch {
+      $_ | Out-Host
+      $this.Log($_, 'Warning')
+    }
+
     $this.Print()
     $this.Write()
   }
