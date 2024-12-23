@@ -275,7 +275,7 @@ function New-WinGetManifest {
   $Task.Log('Creating a pull request', 'Info')
   if (Test-Path Env:\GITHUB_ACTIONS) {
     $NewPRBody = @"
-Created by [🥟 Dumplings](https://github.com/${Env:GITHUB_REPOSITORY_OWNER}/Dumplings) in workflow run [#${Env:GITHUB_RUN_NUMBER}](https://github.com/${Env:GITHUB_REPOSITORY_OWNER}/Dumplings/actions/runs/${Env:GITHUB_RUN_ID}).
+Automatically created by [🥟 Dumplings](https://github.com/${Env:GITHUB_REPOSITORY_OWNER}/Dumplings) in workflow run [#${Env:GITHUB_RUN_NUMBER}](https://github.com/${Env:GITHUB_REPOSITORY_OWNER}/Dumplings/actions/runs/${Env:GITHUB_RUN_ID}).
 
 <details>
 
