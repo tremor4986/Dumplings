@@ -1,10 +1,9 @@
-$Domain = 'https://gorealraplayer.radio.sbs.co.kr/intro.html'
-$Object1 = Invoke-WebRequest -Uri $Domain | ConvertFrom-Html
-$AssetSrc = $Object1.SelectSingleNode('/html/head/script[1]').Attributes['src'].Value
+$Domain = 'https://kr-co-sbs-gorealraplayer.s3.ap-northeast-2.amazonaws.com/latest.yml'
+$Object1 = Invoke-RestMethod -Uri $Domain | ConvertFrom-Yaml
 
 # Version
 $this.CurrentState.Version = $Version = [regex]::Match(
-  $AssetSrc, '(\d+.\d+.\d+)'
+  $Object1.version, '(\d+.\d+.\d+)'
   ).Groups[1].Value
 
 # Installer
