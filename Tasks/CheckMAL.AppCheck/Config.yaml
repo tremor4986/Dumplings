@@ -1,0 +1,3 @@
+Type: PackageTask
+WinGetIdentifier: CheckMAL.AppCheck
+Skip: false
