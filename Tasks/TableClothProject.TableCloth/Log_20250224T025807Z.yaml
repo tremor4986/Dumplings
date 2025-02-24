@@ -1,0 +1,6 @@
+Installer:
+- Architecture: x86
+  InstallerUrl: https://github.com/yourtablecloth/TableCloth/releases/download/v1.14.0/TableCloth_1.14.0.0_Release_821d4fa.exe
+Locale: []
+Version: 1.14.0
+ReleaseTime: 2024-12-04T13:08:26.0000000Z
