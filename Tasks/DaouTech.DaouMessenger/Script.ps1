@@ -1,4 +1,4 @@
-$Object1 = Invoke-RestMethod -Uri 'https://daou.daouoffice.com/api/device/version/check?deviceType=pc_electron&version=3.0.0&lang=ko'
+$Object1 = Invoke-RestMethod -Uri 'https://test.daouoffice.com/api/device/version/check?deviceType=pc_electron&version=3.0.0&lang=ko'
 
 # Version
 $this.CurrentState.Version = $Version = $Object1.data.version
