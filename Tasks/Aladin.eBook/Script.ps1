@@ -1,6 +1,6 @@
 $Domain = 'https://www.aladin.co.kr/m/mevent.aspx?EventId=212360'
 $Object1 = Invoke-WebRequest -Uri $Domain | ConvertFrom-Html
-$DownloadUrl = $Object1.SelectSingleNode('/html/body/div[5]/div[3]/div/ul[1]/li[1]/a').Attributes['href'].Value
+$DownloadUrl = $Object1.SelectSingleNode('/html/body/div/div[4]/div[2]/div/ul[1]/li[1]/a').Attributes['href'].Value
 
 # Version
 $this.CurrentState.Version = [regex]::Match(
