@@ -1,0 +1,4 @@
+Version: 12.2.3
+Installer:
+- InstallerUrl: https://af.swit.io/app/swit-12.2.3.exe
+Locale: []
