@@ -1,0 +1,4 @@
+Version: 3.1.41.3
+Installer:
+- InstallerUrl: https://www.checkmal.com/download/appcheckv3.0/AppCheckSetup.exe
+Locale: []
