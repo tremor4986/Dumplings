@@ -1,0 +1,4 @@
+Version: 2.0.0
+Installer:
+- InstallerUrl: https://cdn.music-flo.com/poc/p/misc/player/latest/FLO_v2.0.0_win_release.exe
+Locale: []
