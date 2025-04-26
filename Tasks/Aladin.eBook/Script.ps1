@@ -1,15 +1,14 @@
-$Domain = 'https://www.aladin.co.kr/m/mevent.aspx?EventId=212360'
-$Object1 = Invoke-WebRequest -Uri $Domain | ConvertFrom-Html
-$DownloadUrl = $Object1.SelectSingleNode('/html/body/div/div[4]/div[2]/div/ul[1]/li[1]/a').Attributes['href'].Value
+$Object1 = Invoke-RestMethod -Uri 'https://ebook-sync.aladin.co.kr/Service/Application/Secure/GetApplicationUpdate' `
+  -Method Post -Headers @{ 'Content-Type' = 'application/json' } -Body '{}'
 
 # Version
 $this.CurrentState.Version = [regex]::Match(
-  $DownloadUrl, '(\d+.\d+.\d+.\d+)'
+  $Object1.DownloadUrl, '(\d+.\d+.\d+.\d+)'
   ).Groups[1].Value
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
-  InstallerUrl = $DownloadUrl
+  InstallerUrl = $Object1.DownloadUrl
 }
 
 switch -Regex ($this.Check()) {
