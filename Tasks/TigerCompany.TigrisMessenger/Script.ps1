@@ -1,9 +1,7 @@
-$Object1 = Invoke-WebRequest -Uri 'https://www.tigrison.com/home' | ConvertFrom-Html
+$Object1 = Invoke-RestMethod -Uri 'https://test40.tigrison.com/store/messenger/update/LATEST_RELEASE2'
 
 # Version
-$this.CurrentState.Version = $Version = [regex]::Match(
-  $Object1.SelectSingleNode('/html/body/script[10]').innerHTML, '(\d+\.\d+\.\d+)'
-  ).Groups[1].Value
+$this.CurrentState.Version = $Version = $Object1.win32.version
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
