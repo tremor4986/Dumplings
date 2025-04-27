@@ -1,16 +1,14 @@
-$Object1 = Invoke-WebRequest -Uri 'https://purple-store.plaync.com/api/conti/content?service=PurpleStore&alias=PurpleStore_Download'
-$windowsLink = [regex]::Match(
-  $Object1.Content, '(https:\/\/[^\s"]+\.exe)'
-  ).Groups[1].Value
+$Object1 = Invoke-RestMethod -Uri 'https://purple-api.plaync.com/api/categories/purpleWeb/contents/purple-store?keySets=purple-download-info'
+$WindowsLink = $Object1.'purple-download-info'.download_info.download_link.pc.windowsLink
 
 # Version
 $this.CurrentState.Version = [regex]::Match(
-  $windowsLink, '(\d+_\d+_\d+_\d+)'
+  $WindowsLink, '(\d+_\d+_\d+_\d+)'
   ).Groups[1].Value.Replace('_', '.')
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
-  InstallerUrl = $windowsLink
+  InstallerUrl = $WindowsLink
 }
 
 switch -Regex ($this.Check()) {
