@@ -1,11 +1,11 @@
-$Object1 = Invoke-RestMethod -Uri 'https://test.daouoffice.com/api/device/version/check?deviceType=pc_electron&version=3.0.0'
+$Object1 = Invoke-RestMethod -Uri 'https://daou.daouoffice.com/api/update-center/public/application/check-update?osType=WINDOWS&version=0.0.0'
 
 # Version
-$this.CurrentState.Version = $Version = $Object1.data.version
+$this.CurrentState.Version = $Object1.latestVersion
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
-  InstallerUrl = "https://msgdown.daouoffice.com:4443/app/electron/"+ $Version +"/DaouMessenger%20Setup%20" + $Version + ".exe"
+  InstallerUrl = $Object1.latestPath
 }
 
 switch -Regex ($this.Check()) {
