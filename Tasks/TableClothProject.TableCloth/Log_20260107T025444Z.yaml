@@ -1,0 +1,6 @@
+Version: 1.16.2
+Installer:
+- Architecture: x86
+  InstallerUrl: https://github.com/yourtablecloth/TableCloth/releases/download/v1.16.2/TableCloth_1.16.2.0_Release_arm64.exe
+Locale: []
+ReleaseTime: 2026-01-07T01:48:56.0000000Z
