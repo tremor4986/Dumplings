@@ -1,0 +1,4 @@
+Version: 2.8.1
+Installer:
+- InstallerUrl: https://flownew.s3.ap-northeast-2.amazonaws.com/flow-2.8.1-setup.exe
+Locale: []
