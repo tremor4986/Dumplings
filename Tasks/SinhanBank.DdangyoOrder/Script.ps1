@@ -1,7 +1,7 @@
 $Url = 'https://boss.ddangyo.com/o2o/shop/cm/requestPcaInstallURL'
 $Response = Invoke-RestMethod -Uri $Url
 
-$DownloadUrl = $Response.dwUrl."다운로드 URL"
+$DownloadUrl = $Response.dwUrl.download_url
 $FileName = $Response.dwUrl.exe_file_nm
 
 # Version
