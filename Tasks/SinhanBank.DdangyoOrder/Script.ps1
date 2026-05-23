@@ -1,12 +1,13 @@
-$Domain = 'http://down.fingerservice.co.kr/'
-$Object1 = Invoke-WebRequest -Uri $Domain | ConvertFrom-Html
-$DownloadUrl = $Domain + $Object1.SelectSingleNode('/html/body/div/div[3]/a').Attributes['href'].Value
+$Url = 'https://boss.ddangyo.com/o2o/shop/cm/requestPcaInstallURL'
+$Response = Invoke-RestMethod -Uri $Url
+
+$DownloadUrl = $Response.dwUrl."다운로드 URL"
+$FileName = $Response.dwUrl.exe_file_nm
 
 # Version
-
 $this.CurrentState.Version = [regex]::Match(
-  $DownloadUrl, '(\d+\.\d+\.\d+)'
-  ).Groups[1].Value
+  $FileName, '(\d+\.\d+\.\d+)'
+).Groups[1].Value
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
