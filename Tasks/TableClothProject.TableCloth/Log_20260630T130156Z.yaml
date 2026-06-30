@@ -1,0 +1,6 @@
+Version: 1.20.2
+Installer:
+- Architecture: x86
+  InstallerUrl: https://github.com/yourtablecloth/TableCloth/releases/download/v1.20.2/Spork_1.20.2.0_Release_arm64.exe
+Locale: []
+ReleaseTime: 2026-06-30T10:35:37.0000000Z
