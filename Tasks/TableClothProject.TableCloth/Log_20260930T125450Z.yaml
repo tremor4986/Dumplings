@@ -1,0 +1,6 @@
+Version: 1.21.1
+Installer:
+- Architecture: x86
+  InstallerUrl: https://github.com/yourtablecloth/TableCloth/releases/download/v1.21.1/SporkBootstrap_1.21.1.0_Release_arm64.exe
+Locale: []
+ReleaseTime: 2026-08-26T11:52:17.0000000Z

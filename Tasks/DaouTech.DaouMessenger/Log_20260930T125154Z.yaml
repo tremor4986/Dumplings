@@ -1,0 +1,4 @@
+Version: 4.5.6
+Installer:
+- InstallerUrl: https://storage.googleapis.com/prod-portal-update-center-repo/4.5.6/DaouMessenger 4.0 Setup 4.5.6.exe
+Locale: []
