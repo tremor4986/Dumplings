@@ -1,4 +1,4 @@
-$Object1 = Invoke-RestMethod -Uri 'https://test40.tigrison.com/store/messenger/update/LATEST_RELEASE2'
+$Object1 = Invoke-RestMethod -Uri 'https://tigrison.com/store/messenger/update/LATEST_RELEASE2'
 
 # Version
 $this.CurrentState.Version = $Version = $Object1.win32.version
