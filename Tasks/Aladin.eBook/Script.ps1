@@ -1,4 +1,4 @@
-$Object1 = Invoke-RestMethod -Uri 'https://ebook-sync.aladin.co.kr/Service/Application/Secure/GetApplicationUpdate' `
+$Object1 = Invoke-RestMethod -Uri 'https://sync.ebook.aladin.co.kr/Service/Application/Secure/GetApplicationUpdate' `
   -Method Post -Headers @{ 'Content-Type' = 'application/json' } -Body '{}'
 
 # Version
