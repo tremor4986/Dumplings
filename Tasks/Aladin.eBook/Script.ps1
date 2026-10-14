@@ -1,5 +1,5 @@
 $Object1 = Invoke-RestMethod -Uri 'https://sync.ebook.aladin.co.kr/Service/Application/Secure/GetApplicationUpdate' `
-  -Method Post -Headers @{ 'Content-Type' = 'application/json' } -Body '{}'
+  -Method Post -Headers @{ 'Content-Type' = 'application/json' } -Body '{"version":0}'
 
 # Version
 $this.CurrentState.Version = [regex]::Match(
