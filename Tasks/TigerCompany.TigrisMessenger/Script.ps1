@@ -5,7 +5,7 @@ $this.CurrentState.Version = $Version = $Object1.win32.version
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
-  InstallerUrl = 'https://www.tigrison.com/store/messenger/update/packages/' + $Version + '/TigrisMessenger-' + $Version + '%20Setup.exe'
+  InstallerUrl = 'https://www.tigrison.com/store/messenger/update/packages/' + $Version + '/TigrisMessenger-Setup-' + $Version + '.exe'
 }
 
 switch -Regex ($this.Check()) {
