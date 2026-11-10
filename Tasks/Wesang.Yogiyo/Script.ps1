@@ -1,8 +1,20 @@
-$Object1 = Invoke-WebRequest -Uri 'https://partner.yogiyo.co.kr/download/partner/order_program'
+$Client = [System.Net.Http.HttpClient]::new()
+
+try {
+  $Response = $Client.GetAsync(
+    'https://partner.yogiyo.co.kr/download/partner/order_program',
+    [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead
+  ).GetAwaiter().GetResult()
+  $Object1 = $Response.Content.Headers.ContentDisposition.ToString()
+}
+finally {
+  if ($Response) { $Response.Dispose() }
+  $Client.Dispose()
+}
 
 # Version
 $this.CurrentState.Version = $Version = [regex]::Match(
-  $Object1.Headers.'Content-Disposition', '(\d+\.\d+\.\d+)'
+  $Object1, '(\d+\.\d+\.\d+)'
   ).Groups[1].Value
 
 # Installer
