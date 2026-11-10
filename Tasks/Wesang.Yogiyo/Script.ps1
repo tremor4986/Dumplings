@@ -1,4 +1,4 @@
-$Object1 = Invoke-WebRequest -Uri 'https://partner.yogiyo.co.kr/guide/order'
+$Object1 = Invoke-WebRequest -Uri 'https://partner.yogiyo.co.kr/download/partner/order_program'
 
 # Version
 $this.CurrentState.Version = $Version = [regex]::Match(
