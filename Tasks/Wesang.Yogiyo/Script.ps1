@@ -1,21 +1,20 @@
 $Client = [System.Net.Http.HttpClient]::new()
 
 try {
-  $Response = $Client.GetAsync(
-    'https://partner.yogiyo.co.kr/download/partner/order_program',
-    [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead
+  $JsContent = $Client.GetStringAsync(
+    'https://partner.yogiyo.co.kr/js/yo_common.js'
   ).GetAwaiter().GetResult()
-  $Object1 = $Response.Content.Headers.ContentDisposition.ToString()
 }
 finally {
-  if ($Response) { $Response.Dispose() }
   $Client.Dispose()
 }
 
-# Version
-$this.CurrentState.Version = $Version = [regex]::Match(
-  $Object1, '(\d+\.\d+\.\d+)'
-  ).Groups[1].Value
+$VersionMatch = [regex]::Match(
+  $JsContent,
+  'GoYogiyo_Setup_(\d+\.\d+\.\d+)\.exe'
+)
+
+$this.CurrentState.Version = $Version = $VersionMatch.Groups[1].Value
 
 # Installer
 $this.CurrentState.Installer += [ordered]@{
